@@ -1,13 +1,43 @@
 package com.javaex.api;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 //배열을 조작하는데 도움을 주는 클래스
 public class ArraysEx {
 public static void main(String[] args) {
-	arrayCopyEx();
+//	arrayCopyEx();
+//	basicSortAsc();
+	basicSortDesc();
 }
+	//사용자 정의 클래스의 정렬
+	private static void customClassSort() {
+		Member[] members = {
+				new Member("홍길동"),
+				new Member("장길산"),
+				new Member("전우치")
+		};
+		System.out.println("원본 배열 : " + Arrays.toString(members));
+	}
 
+
+	//기본 자료형의 오름차순 정렬
+	private static void basicSortAsc() {	//ascending(오름차순)
+		int[] scores = {80, 50, 30, 90, 75, 88 , 77};
+		System.out.println("원본 :" + Arrays.toString(scores));
+		Arrays.sort(scores); //	정렬
+		System.out.println("오름차순 정렬" + Arrays.toString(scores));
+	}
+
+	//기본 자료형의 내림차순 정렬
+	private static void basicSortDesc() {	//descending	내림차순
+		Integer[] scores = {80, 50, 30, 90, 75, 88 , 77};
+		System.out.println("원본 : " + Arrays.toString(scores));
+		//	역순 정렬
+		Arrays.sort(scores, Collections.reverseOrder());
+		System.out.println("내림차순 정렬 : " + Arrays.toString(scores));
+		
+	}
 
 //배열 복사
 	private static void arrayCopyEx() {
