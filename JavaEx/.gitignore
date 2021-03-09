@@ -1,0 +1,10 @@
+<<<<<<< HEAD
+/bin/
+=======
+# 커밋하면 안되는 파일 목록을 명시
+# 개발환경 설정들
+#/bin/ -> 컴파일된 바이트 코드(건들x)
+/bin/
+.project
+.classpath
+>>>>>>> branch 'master' of https://github.com/khs29733/java.git

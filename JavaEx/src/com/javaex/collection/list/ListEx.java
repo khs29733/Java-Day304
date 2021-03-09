@@ -42,6 +42,13 @@ public class ListEx {
 			}
 			System.out.println();
 			
+			// 반복자를 이용한 순회 : 추천
+			Interator<String> it = lst.iterator();
+			while(it.hasNext()) {//뒤에 내용이 더 있는가
+				String item = it.next();
+				System.out.println(item + " ");
+			}
+			System.out.println();
 			
 			//객체의 삭제
 			lst.remove(2);	//인덱스 이용 삭제
