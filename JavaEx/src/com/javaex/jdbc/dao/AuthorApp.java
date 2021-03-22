@@ -6,10 +6,10 @@ import java.util.Scanner;
 
 public class AuthorApp {
 	public static void main(String[] args) {
-		ListAuthors();
-		insertAuthor();
+//		ListAuthors();
+//		insertAuthor();
 //		deleteAuthor();
-		insertAuthor();
+//		insertAuthor();
 	}
 	
 	private static void ListAuthors() {
@@ -74,5 +74,21 @@ public class AuthorApp {
 		scanner.close();
 		
 		
+	}
+	private static void searchAuthors() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("°Ë»ö¾î : ");
+		String keyword = scanner.next();
+		
+		AuthorDao dao = new AuthorDaoOracleImple();
+		List<AuthorVo> list = dao.search(keyword);
+		
+		Iterator<AuthorVo> it = list.iterator();
+		
+		while(it.hasNext()) {
+			AuthorVo vo = it.next();
+			System.out.println(vo);
+		}
+		scanner.close();
 	}
 }

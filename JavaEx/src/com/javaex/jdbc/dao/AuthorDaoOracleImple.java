@@ -56,8 +56,37 @@ public class AuthorDaoOracleImple implements AuthorDao {
 
 	@Override
 	public List<AuthorVo> search(String keyword) {
-		// TODO Auto-generated method stub
-		return null;
+		List<AuthorVo> list = new ArrayList<>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+				rs = pstmt.executeQuery();
+				
+				try {
+					conn = getConnection();
+					String sql = "SELECT id, bio FROM author WHERE name LIKE ?";
+					pstmt = conn.prepareStatement(sql);
+					pstmt.setString(1,"%" + keyword + "%");
+					
+					
+					while(rs.next()) {
+						AuthorVo vo = new AuthorVo();
+						vo.setId(rs.getLong(1));
+						vo.setName(rs.getString(2));
+						vo.setBio(rs.getString(3));
+						
+						list.add(vo);
+					}
+				}catch(SQLException e) {
+					e.printStackTrace();
+				}finally {
+					try {
+						rs.close();
+						stmt.close();
+						conn.close();
+						
+					}catch
+				}
+		return list;
 	}
 
 	@Override
@@ -124,6 +153,7 @@ public class AuthorDaoOracleImple implements AuthorDao {
 			pstmt.setLong(1, id);
 			deletedCount = pstmt.executeUpdate();
 		}catch(SQLException e) {
+		
 			e.printStackTrace();
 		}
 		
